@@ -45,10 +45,19 @@ const DataDisplay = () => {
 
   // Conditional display in case we have no data or the data cannot be retrieved:
   if (!duckData[0]) {
-    return <p className="errorMsg">Data could not be retrieved.</p>;
+    return (
+      <DisplayWindow>
+        <p className="errorMsg">Data could not be retrieved.</p>
+      </DisplayWindow>
+    );
   }
 
-  return <section>{dataCards}</section>;
+  return (
+    <section id="data-display">
+      <h2 className="display-title">Past Data</h2>
+      <DisplayWindow>{dataCards}</DisplayWindow>
+    </section>
+  );
 };
 
 export default DataDisplay;

@@ -1,0 +1,22 @@
+.errorMsg {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: rgb(204, 99, 99);
+}
+
+.display-title {
+  font-size: 2.5rem;
+  color: rgb(59, 59, 59);
+  margin-bottom: 20px;
+}
+
+#data-display {
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
