@@ -99,6 +99,7 @@ const Form = (props) => {
             <label>
               How many ducks did you feed:
               <input
+                min="1"
                 onChange={handleInputChange}
                 type="number"
                 name="nDucks"
@@ -111,6 +112,7 @@ const Form = (props) => {
             <label>
               How much food did you feed:
               <input
+                min="1"
                 onChange={handleInputChange}
                 type="number"
                 name="foodAmount"

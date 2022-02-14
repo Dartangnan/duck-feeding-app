@@ -4,11 +4,13 @@
   "description": "server side of the feeding tracker  app ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "all": "concurrently \"nodemon server.js\" \"cd client && npm start\" ",
+    "instal-all": "concurrently \"npm init\" \"cd client && npm init\" "
   },
   "author": "Dartangnan M. Theml",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.0.0",
     "cors": "^2.8.5",
     "csv-writer": "^1.6.0",
     "dotenv": "^16.0.0",
