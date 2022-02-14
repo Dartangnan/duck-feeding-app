@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import DisplayWindow from "../UI/DisplayWindow";
+import Card from "../UI/Card";
 
 import "./DataDisplay.css";
 
@@ -25,12 +26,29 @@ const DataDisplay = () => {
 
   // Render each data entry in a list:
 
+  //Labels used to identify each data entry information
+  const cardLabels = {
+    time: "Time",
+    foodType: "Type of Food",
+    location: "Location",
+    frequency: "Frequency",
+    nDucks: "Number of Ducks",
+    foodAmount: "Amount of food Given",
+    amountUnit: "Unit of Amount Measurement",
+  };
+
+  const dataCards = duckData
+    .map((entry, index) => {
+      return <Card key={index} dataBody={entry} dataHeaders={cardLabels} />;
+    })
+    .reverse();
+
   // Conditional display in case we have no data or the data cannot be retrieved:
   if (!duckData[0]) {
     return <p className="errorMsg">Data could not be retrieved.</p>;
   }
 
-  return <section>Data</section>;
+  return <section>{dataCards}</section>;
 };
 
 export default DataDisplay;

@@ -1,0 +1,28 @@
+ul {
+  padding: 5px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-label {
+  font-weight: bold;
+}
+
+.card-item {
+  padding: 5px 20px;
+  margin: 5px 0;
+  border-bottom: 1px solid rgb(214, 214, 214);
+  width: 90%;
+  border-top: none;
+}
+
+.single-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  background-color: white;
+  margin: 10px 0;
+  box-shadow: 0 10px 10px 0 rgba(170, 170, 170, 0.685);
+}
