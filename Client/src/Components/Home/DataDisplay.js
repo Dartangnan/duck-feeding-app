@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
+
 import DisplayWindow from "../UI/DisplayWindow";
 import Card from "../UI/Card";
 
@@ -12,9 +14,9 @@ const DataDisplay = () => {
     console.log("entered");
     async function fetchDuckData() {
       try {
-        const ans = await fetch("http://localhost:8000/duckdata/api/v1");
+        const ans = await axios.get("http://localhost:8000/duckdata/api/v1");
         console.log(ans.data);
-        const { data: dataObject } = await ans.json();
+        const { data: dataObject } = ans.data;
         console.log(dataObject.entries);
         setDuckData(dataObject.entries);
       } catch (err) {
@@ -25,7 +27,22 @@ const DataDisplay = () => {
   }, []);
 
   // Download button click handler:
-  const onClickHandler = () => {};
+  const onClickHandler = async () => {
+    //Retrieve data from the server
+    const randomID = Math.floor(Math.random() * 1000000000);
+    const { data } = await axios.get(
+      `http://localhost:8000/duckdata/csvFile/${randomID}`
+    );
+
+    //Create download link and open download window
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(new Blob([data]));
+    link.setAttribute("download", `duck_feeding_data_${randomID}.csv`);
+    document.body.appendChild(link);
+    link.click();
+
+    await axios.delete(`http://localhost:8000/duckdata/csvFile/${randomID}`);
+  };
 
   // Render each data entry in a list:
 
