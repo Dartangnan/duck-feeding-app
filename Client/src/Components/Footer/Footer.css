@@ -1,0 +1,13 @@
+.app-footer {
+  display: flex;
+  text-align: center;
+  padding-bottom: 5px;
+  width: 95%;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1%;
+}
+
+.app-footer img {
+  max-width: 70px;
+}
