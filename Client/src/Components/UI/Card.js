@@ -1,10 +1,12 @@
 import "./Card.css";
 
-const Card = ({ dataBody, dataHeaders }, props) => {
+const Card = ({ dataBody, dataHeaders = null }, props) => {
+  // In case there are no headers/labels input:
   if (!dataHeaders && !dataBody) {
     return <div className="single-card">{props.children}</div>;
   }
 
+  // Create pairs of label and value:
   const objKeys = Object.keys(dataHeaders);
   const outputCard = objKeys.map((key, index) => {
     return (

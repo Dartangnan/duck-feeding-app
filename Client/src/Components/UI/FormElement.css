@@ -1,0 +1,29 @@
+hr {
+  margin-top: 15px;
+  width: 50%;
+  height: 1px;
+  background-color: rgba(194, 194, 194, 0.425);
+  border: none;
+}
+
+.form-element {
+  margin: 5px 0;
+  padding: 5px 5px;
+  width: 90%;
+}
+
+.form-element label {
+  font-weight: bold;
+}
+
+.form-element input {
+  margin-left: 15px;
+  background-color: rgb(248, 243, 231);
+  color: rgb(29, 29, 29);
+  padding: 5px 10px;
+  border: none;
+}
+
+.form-element input:focus {
+  outline-color: rgb(85, 104, 145);
+}

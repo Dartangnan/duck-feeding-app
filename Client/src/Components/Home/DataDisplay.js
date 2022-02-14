@@ -10,15 +10,12 @@ const DataDisplay = () => {
   const [duckData, setDuckData] = useState([]);
   const [refresh, setRefresh] = useState([]);
 
-  // Retrieve the data every time the component is rendered.
+  // =========== Retrieve the data every time the component is rendered. ===========
   useEffect(() => {
-    console.log("entered");
     async function fetchDuckData() {
       try {
         const ans = await axios.get("http://localhost:8000/duckdata/api/v1");
-        console.log(ans.data);
         const { data: dataObject } = ans.data;
-        console.log(dataObject.entries);
         setDuckData(dataObject.entries);
       } catch (err) {
         setDuckData([]);
@@ -27,7 +24,8 @@ const DataDisplay = () => {
     fetchDuckData();
   }, [refresh]);
 
-  // ----- Download button click handler:
+  // =========== Download button click handler ===========
+
   const onClickHandler = async () => {
     //Retrieve data from the server
     const randomID = Math.floor(Math.random() * 1000000000);
@@ -45,14 +43,14 @@ const DataDisplay = () => {
     await axios.delete(`http://localhost:8000/duckdata/csvFile/${randomID}`);
   };
 
-  // ----- Refresh button click handler:
+  // =========== Refresh button click handler ===========
 
   const handleRefreshClick = () => {
     const newState = refresh ? false : true;
     setRefresh(newState);
   };
 
-  // Render each data entry in a list:
+  // =========== Render each data entry in a list ===========
 
   //Labels used to identify each data entry information
   const cardLabels = {
@@ -71,7 +69,7 @@ const DataDisplay = () => {
     })
     .reverse();
 
-  // Conditional display in case we have no data or the data cannot be retrieved:
+  // =========== Conditional display in case we have no data or the data cannot be retrieved ===========
   if (!duckData[0]) {
     return (
       <DisplayWindow>

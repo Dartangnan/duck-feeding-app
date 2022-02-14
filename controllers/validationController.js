@@ -10,7 +10,6 @@ const checkIfEmptyOrNull = (data, keys) => {
   let result = true;
 
   for (const key of keys) {
-    console.log(data[key]);
     if (!data[key] || data[key].toString().trim() === "") {
       result = false;
       break;

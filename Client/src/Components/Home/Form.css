@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+}
+
+.btn {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: rgb(41, 41, 41);
+  background-color: #f2c786;
+  padding: 7px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.btn:hover {
+  color: rgb(255, 255, 255);
+  background-color: #e78739;
+}
+
+#form-submission {
+  margin-bottom: 7vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
