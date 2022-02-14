@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "all": "concurrently \"nodemon server.js\" \"cd client && npm start\" ",
-    "instal-all": "concurrently \"npm init\" \"cd client && npm init\" "
+    "install-all": "concurrently \"npm install\" \"cd client && npm install\" "
   },
   "author": "Dartangnan M. Theml",
   "license": "ISC",
