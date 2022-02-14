@@ -24,6 +24,9 @@ const DataDisplay = () => {
     fetchDuckData();
   }, []);
 
+  // Download button click handler:
+  const onClickHandler = () => {};
+
   // Render each data entry in a list:
 
   //Labels used to identify each data entry information
@@ -56,6 +59,9 @@ const DataDisplay = () => {
     <section id="data-display">
       <h2 className="display-title">Past Data</h2>
       <DisplayWindow>{dataCards}</DisplayWindow>
+      <button onClick={onClickHandler} className="btn" download>
+        Download Data
+      </button>
     </section>
   );
 };
