@@ -1,4 +1,5 @@
 const checkIfComplete = (keys, size) => {
+  console.log(keys.length);
   if (keys.length !== size) {
     return false;
   }
@@ -7,13 +8,15 @@ const checkIfComplete = (keys, size) => {
 
 const checkIfEmptyOrNull = (data, keys) => {
   let result = true;
+
   for (const key of keys) {
-    console.log(key);
+    console.log(data[key]);
     if (!data[key] || data[key].toString().trim() === "") {
       result = false;
       break;
     }
   }
+  return result;
 };
 
 const checkIfNumbersValid = (...entries) => {
@@ -23,7 +26,6 @@ const checkIfNumbersValid = (...entries) => {
       result = false;
     }
   });
-  console.log(result);
   return result;
 };
 

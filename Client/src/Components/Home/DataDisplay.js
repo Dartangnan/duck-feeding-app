@@ -8,6 +8,7 @@ import "./DataDisplay.css";
 
 const DataDisplay = () => {
   const [duckData, setDuckData] = useState([]);
+  const [refresh, setRefresh] = useState([]);
 
   // Retrieve the data every time the component is rendered.
   useEffect(() => {
@@ -24,9 +25,9 @@ const DataDisplay = () => {
       }
     }
     fetchDuckData();
-  }, []);
+  }, [refresh]);
 
-  // Download button click handler:
+  // ----- Download button click handler:
   const onClickHandler = async () => {
     //Retrieve data from the server
     const randomID = Math.floor(Math.random() * 1000000000);
@@ -42,6 +43,13 @@ const DataDisplay = () => {
     link.click();
 
     await axios.delete(`http://localhost:8000/duckdata/csvFile/${randomID}`);
+  };
+
+  // ----- Refresh button click handler:
+
+  const handleRefreshClick = () => {
+    const newState = refresh ? false : true;
+    setRefresh(newState);
   };
 
   // Render each data entry in a list:
@@ -76,9 +84,14 @@ const DataDisplay = () => {
     <section id="data-display">
       <h2 className="display-title">Past Data</h2>
       <DisplayWindow>{dataCards}</DisplayWindow>
-      <button onClick={onClickHandler} className="btn" download>
-        Download Data
-      </button>
+      <div className="btn-group">
+        <button onClick={onClickHandler} className="btn" href="" download>
+          Download Data
+        </button>
+        <button className=" refresh-btn btn" onClick={handleRefreshClick}>
+          Refresh
+        </button>
+      </div>
     </section>
   );
 };
