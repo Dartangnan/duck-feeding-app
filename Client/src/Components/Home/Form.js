@@ -38,6 +38,7 @@ const Form = (props) => {
     );
     const response = ans.data;
     if (response.status === "success") {
+      props.handleUpdate();
       setValues(initialValues);
     }
   };

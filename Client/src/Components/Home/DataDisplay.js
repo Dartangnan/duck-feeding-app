@@ -6,7 +6,7 @@ import Card from "../UI/Card";
 
 import "./DataDisplay.css";
 
-const DataDisplay = () => {
+const DataDisplay = (props) => {
   const [duckData, setDuckData] = useState([]);
   const [refresh, setRefresh] = useState([]);
 
@@ -22,7 +22,7 @@ const DataDisplay = () => {
       }
     }
     fetchDuckData();
-  }, [refresh]);
+  }, [refresh, props.updateState]);
 
   // =========== Download button click handler ===========
 

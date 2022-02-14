@@ -1,5 +1,4 @@
 const checkIfComplete = (keys, size) => {
-  console.log(keys.length);
   if (keys.length !== size) {
     return false;
   }
